@@ -39,7 +39,9 @@
         </div>
       </div>
       <div class="mt-5 flex items-center justify-end">
-        <button class="bg-warning-100 rounded py-2 px-10 text-sm h-10 shadow-md" @click.prevent="addUser">Enregistrer</button>
+        <button class="bg-warning-100 rounded py-2 px-10 text-sm h-10 shadow-md" @click.prevent="addUser">
+          Enregistrer
+        </button>
       </div>
     </div>
     <div class="fixed inset-0 bg-overlay-100 cursor-pointer" @click="hideAddUser" />
@@ -47,13 +49,16 @@
 </template>
 
 <script>
+var today = new Date();
+var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
 export default {
   emits: ['hideAddUser', 'addUser'],
+
   data() {
     return {
       form: {
         id: Math.floor(Math.random() * 1000000000),
-        createdDate: new Date().getTime(),
+        createdDate: date,
         status: '',
         firstName: '',
         lastName: '',
